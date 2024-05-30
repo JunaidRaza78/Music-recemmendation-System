@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Song List</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="top-bar">
+        <div class="logo">
+            <img src="{{ url_for('static', filename='logo.png') }}" alt="GR-Music Logo">
+            <span class="app-name">GR-Music</span>
+        </div>
+    </div>
+
+    <div class="content-container">
+        <div class="container">
+            <h1>Song List</h1>
+            <ul class="song-list">
+                {% for song in songs %}
+                <li class="song-item">
+                    <span class="song-name">{{ song }}</span>
+                    <a href="{{ url_for('play', song=song) }}"><button class="play-button">Play</button></a>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
